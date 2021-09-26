@@ -1,1 +1,1 @@
-![Alt Text](Assets\images\previewgif.gif)
+![Alt Text](./Assets/images/previewgif.gif)
