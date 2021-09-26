@@ -54,7 +54,6 @@ let startUp = new function()
 
 // --------------LISTEN-FOR-GENERATE---------------
 
-
 btnGenerate.addEventListener("click", function() {
 
   var bank = [uppercase,lowercase,numbers,symbols];
@@ -75,40 +74,41 @@ btnGenerate.addEventListener("click", function() {
 
   if(all.length === 0) {
     all = all.concat(characters[1])
-    // console.log("none selected")
+    // console.log(all)
+    
+  } else {}
+  if( txtLength.value == isNaN(txtLength.value)){
+    alert("Enter a correct password length please.")
 
   } else {
+    characterTotal = txtLength.value;
+    // console.log("found the number")      
+  }
     // figure out the total number of characters
 
-    if( txtLength.value == isNaN(txtLength.value)){
-      alert("Enter a correct password length please.")
-
-    } else {
-      characterTotal = txtLength.value;
-      // console.log("found the number")      
-    }
-  }
  
   
   // console.log(all)
   // ----------BUILD PASSWORD----------------------
   
-  if(characterTotal < 8 || characterTotal > 50) {
+  if(characterTotal < 8 || characterTotal > 75) {
     alert("Enter a correct password length please.")
   } else {
     if (all === 0){
-      console.log("error")
+      // console.log("error")
     }
-    for ( var i = 0; i < characterTotal; i++ ) {
-      var randomnumber = Math.floor(Math.random() * all.length)
-      result = result.concat(all[randomnumber])
-    }
-    var inputfield = document.getElementById("password");
-    inputfield.textContent = "password: " + result.join("");
-    inputfield.style.color = "rgb(80, 132, 251)";
-  }
+    else {
+      for ( var i = 0; i < characterTotal; i++ ) {
+        var randomnumber = Math.floor(Math.random() * all.length)
+        result = result.concat(all[randomnumber])
+      }
+      var inputfield = document.getElementById("password");
+      var coloredword = "password"
+      inputfield.textContent = "" + "\n" + result.join("");
+      inputfield.style.color = "rgb(159, 255, 159)";
 
-// ----------DISPLAY-PASSWORD-FOR-USER----------------
+    }
+  }
 
 
 

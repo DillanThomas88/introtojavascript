@@ -6,20 +6,28 @@
 
 :root {
   --color: #dbdbdb;
-  --background: linear-gradient(240deg, rgba(29,29,29,1) 0%, rgba(29,29,29,0.969625350140056) 51%, rgba(29,29,29,0.9051995798319328) 100%);;
+  --background: linear-gradient(90deg, rgba(32,32,32,1) 0%, rgba(29,29,29,1) 7%, rgba(59,59,59,1) 100%);
   --text:#e6e6e6;
-  --color2: rgb(255, 117, 117);
+  --color2: rgb(159, 255, 159);
   --dark: rgb(20, 20, 20);
-  --color3: rgb(80, 132, 251);
+  --color3: rgb(101, 178, 250);
 }
-html,
+
+html {
+  cursor: default;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
 body,
 .wrapper {
   height: 100%;
   margin: 0;
   padding: 0;
 }
-
+h1 {
+  font-size: 40px;
+  font-weight: 900;
+}
 body {
   font-family: sans-serif;
   background: var(--background);
@@ -27,7 +35,7 @@ body {
 }
 
 .wrapper {
-  padding-top: 30px;
+  padding-top: 150px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -41,12 +49,13 @@ header {
 .card {
   background: var(--background);
   border-radius: 5px;
-  border-width: 1px;
+
+  border: 3px solid var(--color);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: var(--text);
   font-size: 18px;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 30px 40px;
 }
 .card-header {
@@ -65,6 +74,7 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
+  border-radius: 50%;
   background:var(--color);
 }
 
@@ -75,6 +85,7 @@ header {
   width: 26px;
   left: 4px;
   bottom: 4px;
+  border-radius: 50%;
   background: var(--background);
   transition-duration: .15s;
 }
@@ -86,6 +97,7 @@ b {
   flex: 100%;
   padding: 15px 0px;
   justify-content: center;
+  font-weight: 500;
   color: var(--text);
 }
 
@@ -116,11 +128,16 @@ input:checked + .slider {
 input:checked + .slider:before {
   display: none;
 }
+
 label {
   margin: 20px 0px 15px 0px;
 }
 .card-body {
-  min-height: 50px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 75px;
 }
 
 .card-footer {
@@ -130,7 +147,8 @@ label {
 
 textarea {
   height: 50px;
-  background: var(--background);
+  background: none;
+
 }
 
 .btn {
@@ -163,29 +181,24 @@ button[disabled] {
 }
 
 #password {
-  
-  width: 100%;
-  padding-top: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 55px;
+  text-align: center;
+  display: flex;
+  height: 100%;
   font-size: 1.2rem;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: none;
+  outline: none;
   border-radius: 6px;
-  resize: none;
   overflow: hidden;
+  resize: none;
 }
-
 .center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  margin: 25px 0px 10px 0px;
+  margin: 0px 0px 0px 0px;
 }
 #total-characters {
   width: 100px;
@@ -194,10 +207,10 @@ button[disabled] {
   border: none;
   border: 2px solid var(--color);
   margin: 10px 0px 5px 0px;
-  color: var(--color);
+  color: var(--color2);
   text-align:  center;
   outline: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
  textarea {
    overflow: auto;
@@ -210,7 +223,8 @@ button[disabled] {
 
 }
 p {
-  color: var(--color2);
+  margin: 10px 0px;
+  color: var(--color);
   font-size: .8rem;
 }
 
