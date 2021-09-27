@@ -1,140 +1,68 @@
 // -------------THOUGHTS------------------
-// listen for generate button press
-
+// listen for generate button
 // check to see if check mark boxes are checked
-
-// if none are checked use just lowercase letters
-
-// if more than one box is checked combine all arrays that are checked
-
+// if none are checked use lowercase letters only
+// if more than one box is checked merge all checked arrays
 // check password length.
-
 // add password length to for loop
-
-// in for loop, generate random numbers in arr.length
-
+// in for loop, generate random numbers within array.length
 // print password into text box.
-
-
-
-// -----------GLOBALS---------------------
-
-
-var alphabetLower;
-var alphabetUpper;
-var allNumbers;
-var allSymbols;
-var characters;
-
 const btnGenerate = document.getElementById("generate");
 const cmkUppercase = document.getElementById("uppercase");
 const cmkLowercase = document.getElementById("lowercase");
 const cmknumbers = document.getElementById("numbers");
 const cmksymbols = document.getElementById("symbols");
 const txtLength = document.getElementById("total-characters");
-
-var uppercase = false;
-var lowercase = false;
-var numbers = false;
-var symbols = false;
-
+// -----------GLOBALS---------------------
+var group;
+var lowerCase;
+var upperCase;
+var numbers;
+var symbols;
+var boolUppercase = false;
+var boolLowercase = false;
+var boolNumbers = false;
+var boolSymbols = false;
 // ---------------LOAD---------------------------
-let startUp = new function()
- {
+let startUp = new function(){
   var x = 'abcdefghijklmnopqrstuvwxyz';
-  var y = x.toUpperCase();
-
-  alphabetLower = x.split('');
-  alphabetUpper = y.split('');
-  allNumbers = [1,2,3,4,5,6,7,8,9,0];
-  allSymbols = ["!","@","#","$","%","^","&","*","(",")","_","+","<",">","?","~",""];
-  characters = [alphabetUpper,alphabetLower,allNumbers,allSymbols];
+  var y = '12345678901234567890';
+  var z = '`~!@#$%^&*()_+=|][:?><,./';
+  var a = x.toUpperCase();
+  lowerCase = x.split('');
+  upperCase = a.split('');
+  numbers = y.split('');
+  symbols = z.split('');
+  group = [upperCase,lowerCase,numbers,symbols];  
 }
-
-
-// --------------LISTEN-FOR-GENERATE---------------
-
+// --------------LISTENS------------------------------------------------------------
+cmkUppercase.addEventListener('click',function(){boolUppercase = !boolUppercase });
+cmkLowercase.addEventListener('click',function(){ boolLowercase = !boolLowercase });
+cmknumbers.addEventListener('click',function(){ boolNumbers = !boolNumbers });
+cmksymbols.addEventListener('click',function(){ boolSymbols = !boolSymbols });
 btnGenerate.addEventListener("click", function() {
-
-  var bank = [uppercase,lowercase,numbers,symbols];
-  var all = [];
-  var characterTotal;
+  // local-vars
+  var bools = [boolUppercase,boolLowercase,boolNumbers,boolSymbols];
+  var pool = []; 
   var result = [];
-// figure out which types are selected and add to 'all' array.
-
-    for (i = 0; i < bank.length; i++) {
-    if(bank[i] === true) {
-      all = all.concat(characters[i]); 
-      // console.log("added")   
-    }
-    else {}
-  }
-
-// if no types selected, use lowercase letter only
-
-  if(all.length === 0) {
-    all = all.concat(characters[1])
-    // console.log(all)
-    
-  } else {}
-  if( txtLength.value == isNaN(txtLength.value)){
-    alert("Enter a correct password length please.")
-
-  } else {
+  var characterTotal;
+  var inputfield = document.getElementById("password");
+  // activity
+  if(txtLength.value != isNaN(txtLength.value)){
     characterTotal = txtLength.value;
-    // console.log("found the number")      
+  } else { alert("Enter a correct password length please.")}
+  for (i = 0; i < bools.length; i++) {
+    if(bools[i] === true) {pool = pool.concat(group[i])};
   }
-    // figure out the total number of characters
-
- 
-  
-  // console.log(all)
-  // ----------BUILD PASSWORD----------------------
-  
-  if(characterTotal < 8 || characterTotal > 75) {
-    alert("Enter a correct password length please.")
-  } else {
-    if (all === 0){
-      // console.log("error")
-    }
-    else {
-      for ( var i = 0; i < characterTotal; i++ ) {
-        var randomnumber = Math.floor(Math.random() * all.length)
-        result = result.concat(all[randomnumber])
-      }
-      var inputfield = document.getElementById("password");
-      var coloredword = "password"
+  if(pool.length === 0) {pool = pool.concat(group[1])};  
+  if(characterTotal > 8 && characterTotal < 75) {
+    for ( var i = 0; i < characterTotal; i++ ) {
+      var randomnumber = Math.floor(Math.random() * pool.length)
+      result = result.concat(pool[randomnumber])
       inputfield.textContent = "" + "\n" + result.join("");
       inputfield.style.color = "rgb(159, 255, 159)";
-
     }
-  }
-
-
-
+  } else { alert("Enter a correct password length please.")}
 });
-
-
-
-// -------------LISTEN-FOR-CHECKS---------------------
-
-
-
-cmkUppercase.addEventListener('click',function(){
-    uppercase = !uppercase;
-    // console.log(uppercase)
-})
-cmkLowercase.addEventListener('click',function(){
-  lowercase = !lowercase;
-  // console.log(lowercase)
-})
-cmknumbers.addEventListener('click',function(){
-  numbers = !numbers;
-  // console.log(numbers)
-})
-cmksymbols.addEventListener('click',function(){
-  symbols = !symbols;
-  // console.log(symbols)
-})
 
 
