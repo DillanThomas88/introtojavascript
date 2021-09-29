@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./Assets/css/reset.css">
-    <link rel="stylesheet" href="./Assets/css/style.css" />    
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <b>Choose the character types to include in your password</b>
-          <label class="switch"  >
-            <input type="checkbox" >          
-            <span class="slider" id="uppercase"></span>
-            <b>Uppercase</b>
-          </label>
-          <label class="switch"  >
-            <input type="checkbox" id="lowercase">
-            <span class="slider"></span>
-            <b>Lowercase</b>
-          </label>
-          <label class="switch"  >
-            <input  type="checkbox" id="numbers">
-            <span class="slider"></span>
-            <b>Numbers</b>
-          </label>
-          <label class="switch" >
-            <input type="checkbox" id="symbols" >
-            <span class="slider"></span>
-            <b>Symbols</b>
-          </label>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder=""            
-          ></textarea>
-        </div>
-        <div class="center">
-          <label for="total-characters">Enter password length</label>
-          <input id="total-characters" type="text" placeholder="...">
-          <p>* Must be between 8 characters and 75 characters</p>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="./Assets/css/reset.css">
+  <link rel="stylesheet" href="./Assets/css/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-header">
+        <b>Include character types</b>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider" id="uppercase"></span>
+          <b>Uppercase</b>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="lowercase">
+          <span class="slider"></span>
+          <b>Lowercase</b>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="numbers">
+          <span class="slider"></span>
+          <b>Numbers</b>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="symbols">
+          <span class="slider"></span>
+          <b>Symbols</b>
+        </label>
+      </div>
+      <div class="card-body">
+        <textarea readonly id="password" placeholder=""></textarea>
+      </div>
+      <div class="center">
+        <!-- <label for="total-characters">Enter password length</label> -->
+        <input id="total-characters" type="text" placeholder="Password length">
+        <p>* Must be between 8 characters and 75 characters</p>
+        <!-- <p>Enter a word you'd like to include in your password</p> -->
+        <input id="additional" type="text" placeholder="Include a word"> 
+      </div>
+      <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
       </div>
     </div>
-    <script src="./Assets/scripts/script.js"></script>
-  </body>
+  </div>
+  <script src="./Assets/scripts/script.js"></script>
+</body>
+
 </html>

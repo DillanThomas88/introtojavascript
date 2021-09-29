@@ -3,7 +3,6 @@
 *::after {
   box-sizing: border-box;
 }
-
 :root {
   --color: #dbdbdb;
   --background: linear-gradient(90deg, rgba(32,32,32,1) 0%, rgba(29,29,29,1) 7%, rgba(59,59,59,1) 100%);
@@ -12,7 +11,6 @@
   --dark: rgb(20, 20, 20);
   --color3: rgb(101, 178, 250);
 }
-
 html {
   cursor: default;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -33,7 +31,6 @@ body {
   background: var(--background);
   cursor: default;
 }
-
 .wrapper {
   padding-top: 150px;
   padding-left: 20px;
@@ -45,7 +42,6 @@ header {
   padding-top: 0px;
   color: var(--text);
 }
-
 .card {
   background: var(--background);
   border-radius: 5px;
@@ -64,9 +60,7 @@ header {
   flex-direction: row;
   justify-content: space-evenly;
   margin: 20px;
-
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -77,7 +71,6 @@ header {
   border-radius: 50%;
   background:var(--color);
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -89,8 +82,6 @@ header {
   background: var(--background);
   transition-duration: .15s;
 }
-
-
 b {
   z-index: 4;
   display: flex;
@@ -100,7 +91,6 @@ b {
   font-weight: 500;
   color: var(--text);
 }
-
 .switch:hover > .slider:before {
   transition-duration: .15s;
   height: 0px;
@@ -108,7 +98,6 @@ b {
   left: 16px;
   bottom: 16px;
 }
-
 .switch {
   position: relative;
   display: inline-block;
@@ -128,7 +117,6 @@ input:checked + .slider {
 input:checked + .slider:before {
   display: none;
 }
-
 label {
   margin: 20px 0px 15px 0px;
 }
@@ -139,18 +127,13 @@ label {
   align-content: center;
   height: 75px;
 }
-
 .card-footer {
   text-align: center;
 }
-
-
 textarea {
   height: 50px;
   background: none;
-
 }
-
 .btn {
   border: 2px solid var(--color);
   background-color: var(--background);
@@ -170,16 +153,13 @@ textarea {
   color: var(--dark);
   background-color: var(--color);
 }
-
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
-
 .float-right {
   float: right;
 }
-
 #password {
   text-align: center;
   display: flex;
@@ -201,8 +181,8 @@ button[disabled] {
   margin: 0px 0px 0px 0px;
 }
 #total-characters {
-  width: 100px;
-  height: 75px;
+  width: 450px;
+  height: 50px;
   background-color: var(--background);
   border: none;
   border: 2px solid var(--color);
@@ -212,9 +192,21 @@ button[disabled] {
   outline: none;
   font-size: 2rem;
 }
- textarea {
-   overflow: auto;
- }
+#additional {
+  width: 450px;
+  height: 50px;
+  background-color: var(--background);
+  border: none;
+  border: 2px solid var(--color);
+  margin: 10px 0px 5px 0px;
+  color: var(--color2);
+  text-align:  center;
+  outline: none;
+  font-size: 2rem;
+}
+textarea {
+  overflow: auto;
+}
 #total-characters:focus {
   
   border: 2px solid var(--color);
@@ -228,23 +220,16 @@ p {
   font-size: .8rem;
 }
 
-
-
-
-
-
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
-
   #password {
     font-size: 1rem;
   }
 }
-
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
