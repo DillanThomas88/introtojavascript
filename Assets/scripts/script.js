@@ -18,12 +18,9 @@ const txtLength = document.querySelector("#total-characters");
 const includedword = document.querySelector("#additional");
 const inputfield = document.querySelector("#password");
 inputfield.style.color = "rgb(159, 255, 159)";
+
 // -----------GLOBALS---------------------
 var group;
-var lowerCase;
-var upperCase;
-var numbers;
-var symbols;
 var boolUppercase;
 var boolLowercase;
 var boolNumbers;
@@ -31,57 +28,46 @@ var boolSymbols;
 
 // ---------------LOAD---------------------------
 let getCharacters = new function(){
+  
   var x = 'abcdefghijklmnopqrstuvwxyz';
   var y = '12345678901234567890';
   var z = '`~!@#$%^&*()_+=|][:?><,./';
   var a = x.toUpperCase();
-  lowerCase = x.split('');
-  upperCase = a.split('');
-  numbers = y.split('');
-  symbols = z.split('');
+  var lowerCase = x.split('');
+  var upperCase = a.split('');
+  var numbers = y.split('');
+  var symbols = z.split('');
   group = [upperCase,lowerCase,numbers,symbols];
   }
-
-// --------------LISTENS------------------------------------------------------------
+// --------------LISTENERS------------------------------------------------------------
 cmkUppercase.addEventListener('click',function(){boolUppercase = !boolUppercase });
 cmkLowercase.addEventListener('click',function(){ boolLowercase = !boolLowercase });
 cmknumbers.addEventListener('click',function(){ boolNumbers = !boolNumbers });
 cmksymbols.addEventListener('click',function(){ boolSymbols = !boolSymbols });
+btnGenerate.addEventListener("click", GeneratePassword)
 
-btnGenerate.addEventListener("click", function() {
+// ------------FUNCTIONS--------------------------------------------------------------
+function GeneratePassword() {
   var pool = [];
   var result = [];
-  var bools = [boolUppercase, boolLowercase, boolNumbers, boolSymbols];  
+  var bools = [boolUppercase, boolLowercase, boolNumbers, boolSymbols];
   var characterTotal = txtLength.value;
   var additionaltext = includedword.value;
 
-  // activity
-
-  addCharacterGroupsToThePool();
-
-  if(characterTotal > 8 && characterTotal < 75) {
-    var i = generatePassword();
-  } else { alert("Enter a correct password length please.")}  
-
-  function addCharacterGroupsToThePool() {
+  if (characterTotal >= 8 && characterTotal <= 75) {
     for (i = 0; i < bools.length; i++) {
       if (bools[i] === true) {
         pool = pool.concat(group[i]);
       };
     }
     if (pool.length === 0) {
-      pool = lowerCase;
+      pool = group[1];
     }
-  }
-  function generatePassword() {
     for (var i = 0; i < characterTotal; i++) {
       var randomnumber = Math.floor(Math.random() * pool.length);
       result = result.concat(pool[randomnumber]);
     }
     inputfield.textContent = "\n" + additionaltext + result.join("");
-    return i;
-  }
-});
-
-
+  } else { alert("Enter a correct password length please."); }
+}
 
