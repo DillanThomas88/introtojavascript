@@ -17,14 +17,16 @@ const cmksymbols = document.querySelector("#symbols");
 const txtLength = document.querySelector("#total-characters");
 const includedword = document.querySelector("#additional");
 const inputfield = document.querySelector("#password");
+const charcaterMessageEL = document.querySelector('#character-message');
 inputfield.style.color = "rgb(159, 255, 159)";
-
 // -----------GLOBALS---------------------
 var group;
 var boolUppercase;
 var boolLowercase;
 var boolNumbers;
 var boolSymbols;
+var maxCharacters = 75;
+var minCharacters = 8;
 
 // ---------------LOAD---------------------------
 let getCharacters = new function(){
@@ -38,6 +40,7 @@ let getCharacters = new function(){
   var numbers = y.split('');
   var symbols = z.split('');
   group = [upperCase,lowerCase,numbers,symbols];
+  charcaterMessageEL.textContent = "*Must be between " + minCharacters + " and " + maxCharacters + " charcaters."
   }
 // --------------LISTENERS------------------------------------------------------------
 cmkUppercase.addEventListener('click',function(){boolUppercase = !boolUppercase });
@@ -51,10 +54,10 @@ function GeneratePassword() {
   var pool = [];
   var result = [];
   var bools = [boolUppercase, boolLowercase, boolNumbers, boolSymbols];
-  var characterTotal = txtLength.value;
+  var characterLength = txtLength.value;
   var additionaltext = includedword.value;
 
-  if (characterTotal >= 8 && characterTotal <= 75) {
+  if (characterLength >= minCharacters && characterLength <= maxCharacters) {
     for (i = 0; i < bools.length; i++) {
       if (bools[i] === true) {
         pool = pool.concat(group[i]);
@@ -63,7 +66,7 @@ function GeneratePassword() {
     if (pool.length === 0) {
       pool = group[1];
     }
-    for (var i = 0; i < characterTotal; i++) {
+    for (var i = 0; i < characterLength; i++) {
       var randomnumber = Math.floor(Math.random() * pool.length);
       result = result.concat(pool[randomnumber]);
     }
